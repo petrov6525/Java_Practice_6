@@ -1,0 +1,21 @@
+1. METANIT.COM
+ло -1.
+
+
+
+22
+23
+
+                // записываем из буфера в файл
+                fos.write(buffer, 0, count);
+            }
+            System.out.println("File has been written");
+        }
+        catch(IOException ex){
+
+            System.out.println(ex.getMessage());
+        }
+    }
+}
+Классы FileInputStream и FileOutputStream предназначены прежде всего для записи двоичных файлов, то есть для записи и чтения байтов. И хотя они также могут использоваться для работы с текстовыми файлами, но все же для этой задачи больше подходят другие классы.
+

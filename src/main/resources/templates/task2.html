@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="https://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<style>
+    .flex {
+        display: flex;
+        width: 100%;
+    }
+    .form {
+        width: 30%;
+    }
+    .text {
+        flex: 1;
+        padding: 15px;
+        height: 100%;
+        border-left: 1px solid gray;
+    }
+</style>
+<body>
+<header th:insert="~{sections/header :: header}">
+
+</header>
+<h1>Task 2</h1>
+<div class="flex">
+    <div class="form">
+        <form action="/post-task-2" method="post">
+            <div id="array">
+                <div>
+                    <label>
+                        Number
+                        <p>
+                            <input type="number" min="0" value="5" name="array" required/>
+                        </p>
+                    </label>
+                </div>
+            </div>
+
+            <button type="button" id="addButton">
+                Add Number
+            </button>
+
+            <button>
+                Start
+            </button>
+        </form>
+    </div>
+    <div class="text"
+         th:if="${array != null}">
+        <div>
+            <span>Sum - </span>
+            <span th:text="${sum}"></span>
+        </div>
+        <div>
+            <span>Avg - </span>
+            <span th:text="${avg}"></span>
+        </div>
+
+        <p th:text="${array}"></p>
+    </div>
+</div>
+<script>
+    const button = document.getElementById("addButton");
+    button.addEventListener("click", function (e) {
+        const inputsDiv = document.getElementById("array");
+        const div = document.createElement("div");
+        const label = document.createElement("label");
+        const p = document.createElement("p");
+        const input = document.createElement("input");
+
+        input.setAttribute("type", "number");
+        input.setAttribute("name", "array");
+        input.setAttribute("min", "0");
+        input.setAttribute("value", "5");
+        input.setAttribute("required", "true");
+
+        p.appendChild(input);
+        label.innerText = "Number";
+        label.appendChild(p);
+        div.appendChild(label);
+        inputsDiv.appendChild(div);
+    })
+</script>
+</body>
+</html>
